@@ -25,7 +25,7 @@ def convert_playlist():
     
     try:
         sp = spotify.build_spotify(spotify_client_id, spotify_client_secret)
-        split_uris = spotify.get_spotify_track_uris(sp, tracks)
+        uris = spotify.get_spotify_track_uris(sp, tracks)
         playlist_id = spotify.create_playlist(sp)
 
     except Exception:
@@ -33,8 +33,8 @@ def convert_playlist():
         return render_template('index.html', message = failure_message, success = False)
     
     try:
-        spotify.add_tracks(sp, playlist_id, split_uris)
-        
+        spotify.add_tracks(sp, playlist_id, uris)
+
     except Exception:
         failure_message = 'Something went wrong...Spotify API quota limit may be reached.'
         return render_template('index.html', message = failure_message, success = False)  

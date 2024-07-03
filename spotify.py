@@ -57,11 +57,7 @@ def get_spotify_track_uris(sp, tracks):
             best_uri = found_tracks[best_track]
             uris.append(best_uri)
 
-    split_uris = []
-    for i in range(0, len(uris), 100):
-        split_uris.append(uris[i:i + 100])
-
-    return split_uris
+    return uris
 
 def create_playlist(sp):
     '''
@@ -73,13 +69,14 @@ def create_playlist(sp):
 
     return playlist_id
 
-def add_tracks(sp, playlist_id, split_uris):
+def add_tracks(sp, playlist_id, uris):
     '''
-    Add songs to a playlist based on a given playlist ID and a list of split URIs.
+    Add songs to a playlist based on a given playlist ID and a list of URIs.
     '''
-    #test = split_uris[0][:4]
-    #test2 = ['spotify:track:78c0skRNKKpF6gXDK5K0f1', 'spotify:track:3XrAY4qMWGW8KHjPusT6d0']
-    #sp.playlist_add_items(playlist_id, test2)
+    split_uris = []
+    for i in range(0, len(uris), 100):
+        split_uris.append(uris[i:i + 100])
+
     for split_uri in split_uris:
         sp.playlist_add_items(playlist_id, split_uri)
     print('Done')
