@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Youtube to Spotify Playlist</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel = "stylesheet" href = "../static/index.css">
+    </head>
+    <body>
+        <div id="content_box">
+            <h1>Youtube to Spotify Playlist Converter</h1>
+            <form action="/convert" method="POST">
+                <p>YouTube Data API Key</p>
+                <input class="input_box" type="text" name="youtube_api_key" placeholder="Enter API Key" required><br>
+                <p>Spotify Client ID</p>
+                <input class="input_box" type="text" name="spotify_client_id" placeholder="Enter Client ID" required><br>
+                <p>Spotify Client Secret</p>
+                <input class="input_box" type="text" name="spotify_client_secret" placeholder="Enter Client Secret" required><br>
+                <p>YouTube Playlist URL</p>
+                <input class="input_box" type="text" name="youtube_playlist_url" placeholder="Enter Playlist URL" required><br>
+                <input id="submit_button" value="Convert" type="submit" value="Submit">
+            </form>
+        </div>
+        {% if message %}
+        {% if success %}
+        <div id="message_box" style="border: 1px solid #1db954;">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+        {% if not success %}
+        <div id="message_box" style="border: 1px solid #b91d37;">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+        {% endif %}
+    </body>
+</html>

@@ -1,0 +1,45 @@
+body {
+    background-color: #161616;
+    font-family: 'Franklin Gothic Medium';
+}
+
+#content_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5% 19% 0% 19%;
+    padding-bottom: 10px;
+    border-radius: 20px;
+
+    color: #ffffff;
+    background-color: #303030;
+    border: 1px solid #1db954;
+}
+
+.input_box {
+    width: 62vh;
+}
+
+#submit_button {
+
+    font-family: 'Franklin Gothic Medium';
+    width: 100%;
+    padding: 2vh;
+    margin-top: 10px;
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+
+#message_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 5% 19% 0% 19%;
+    margin-top: 2vh;
+    border-radius: 20px;
+
+    color: #ffffff;
+    background-color: #303030;
+}
